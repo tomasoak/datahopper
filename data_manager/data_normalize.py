@@ -11,8 +11,7 @@ def print_name(name=None):
 
 
 def normalize_string(df: pd.DataFrame, col: str, case=None, clean=False):
-    """
-    Adjust column value characters encoding to UTF-8.
+    """ Adjust column value characters encoding to UTF-8.
     Case parameter makes your column string upper, lower or titlecase
     If clean:
         Removes special characters such as whitespace, ".", "-", "/", ",", '"'
@@ -81,5 +80,37 @@ def normalize_string(df: pd.DataFrame, col: str, case=None, clean=False):
     return df
 
 def rename(df, columns):
-    """ Rename columns """
+    """ Rename columns
+    
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        Input DataFrame
+    columns : list
+        List of columns to be renamed
+    Returns
+    -------
+    df : pandas.DataFrame
+        Inputed DataFrame with renamed columns
+    """
     return df.rename(columns=columns, errors="raise")
+
+
+def drop_rows_missing_values(df, *columns):
+    """ Drop rows with missing values
+    
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        Input DataFrame
+    columns : list
+        List of column names
+
+    Returns
+    -------
+    df : pd.DataFrame
+        A .copy() of the input DataFrame
+    """
+    for column in columns:
+        df = df[~df[column].isin(["", "NA", "nan"])]
+    return df.copy()
