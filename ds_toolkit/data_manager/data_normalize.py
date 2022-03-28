@@ -35,8 +35,8 @@ def normalize_string(df: pd.DataFrame, col: str, case=None, clean=False):
     _______
         df = pd.DataFrame(
             columns=["id",  "name"],
-            data=[  [  1,   "john coltra.ne"],
-                    [  2,   "eLLa FiTzger-d"],
+            data=[  [  1,   "john coltRanE-"],
+                    [  2,   "eLLa _FiTzgeralD"],
                     [  3,   "MiLes DaviS"]])
         df = normalize_string(df, name, case="title", clean=True)       
 
@@ -62,12 +62,11 @@ def normalize_string(df: pd.DataFrame, col: str, case=None, clean=False):
     elif case == "title":
         df[col] = df[col].str.title()
     else:
-        raise ValueError("The chosen case must be 'lower' or 'upper'.")
+        raise ValueError("The chosen case must be 'lower', 'upper' or 'title'.")
 
     if clean is True:
         df[col] = (
             df[col]
-            .str.replace(" ", "")
             .str.replace(".", "")
             .str.replace("-", "")
             .str.replace("/", "")
