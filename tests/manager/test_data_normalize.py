@@ -1,6 +1,6 @@
 import pandas as pd
-from pandas.testing import assert_frame_equal
-from ds_toolkit.data_manager.data_normalize import normalize_string
+from ds_toolkit.manager.data_normalize import normalize_string
+
 
 def test_normalize_string():
   df = pd.DataFrame(columns=["id", "name"],
@@ -14,5 +14,4 @@ def test_normalize_string():
                     [3, "Miles Davis"]])             
 
   df = normalize_string(df, "name", case="title", clean=True)
-  # assert_frame_equal(df, df_clean)
   assert all(df["name"] == df_clean["name"])

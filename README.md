@@ -12,8 +12,3 @@ pip install ds_toolkit
 
 ## Contributions
 - Pull Requests
-
-
-___
-## Create distribuition version
-python setup.py sdist bdist_wheel
