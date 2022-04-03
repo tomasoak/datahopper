@@ -1,51 +1,34 @@
 import pandas as pd
 
-# pyment -w -o numpydoc data_normalize.py -- generates automatic docstrings
-
-def print_name(name=None):
-    """ Test function """
-    if name:
-        print("Hello", name)
-    else:
-        print("Hello stranger")
-
 
 def normalize_string(df: pd.DataFrame, col: str, case=None, clean=False):
-    """ Adjust column value characters encoding to UTF-8.
+    """Adjust column value characters encoding to UTF-8.
     Case parameter makes your column string upper, lower or titlecase
     If clean:
         Removes special characters such as whitespace, ".", "-", "/", ",", '"'
-
-    Parameters
-    __________
-    df : pandas Dataframe
-        input DataFrame
-    col : string 
-        string column to be normalize
-    case : string
-        lower or upper string values
-    clean : bool
-        remove specific characters
-
-    Returns
-    _______
-    df: pandas DataFrame
-
-    Example
-    _______
+    
+    Example:
         df = pd.DataFrame(
             columns=["id",  "name"],
             data=[  [  1,   "john coltRanE-"],
                     [  2,   "eLLa _FiTzgeralD"],
                     [  3,   "MiLes DaviS"]])
-        df = normalize_string(df, name, case="title", clean=True)       
-
-        returns:
+        df = normalize_string(df, name, case="title", clean=True)
         `df = pd.DataFrame(
             columns=["id",  "name"],
             data=[  [  1,   "John Coltrane"],
-                    [  2,   "Ella Fitzgerald"],
-                    [  3,   "Miles Davis"]])`
+            [  2,   "Ella Fitzgerald"],
+            [  3,   "Miles Davis"]])`
+
+    Args:
+      df: pd.DataFrame:
+      col: str:
+      case: (Default value = None)
+      clean: (Default value = False)
+
+    Returns:
+      df = pd.DataFrame: cleaned string column values
+
     """
     df[col] = (
         df[col]
@@ -78,37 +61,29 @@ def normalize_string(df: pd.DataFrame, col: str, case=None, clean=False):
 
     return df
 
-def rename(df, columns):
-    """ Rename columns
-    
-    Parameters
-    ----------
-    df : pandas.DataFrame
-        Input DataFrame
-    columns : list
-        List of columns to be renamed
-    Returns
-    -------
-    df : pandas.DataFrame
-        Inputed DataFrame with renamed columns
+def rename(df: pandas.DataFrame, columns):
+    """Rename columns
+
+    Args:
+      df: pandas.DataFrame: 
+      columns: 
+
+    Returns:
+      df: pd.Dataframe: withe renamed columns
     """
     return df.rename(columns=columns, errors="raise")
 
 
-def drop_rows_missing_values(df, *columns):
-    """ Drop rows with missing values
-    
-    Parameters
-    ----------
-    df : pandas.DataFrame
-        Input DataFrame
-    columns : list
-        List of column names
+def drop_rows_missing_values(df: pandas.DataFrame, *columns):
+    """Drop rows with missing values
 
-    Returns
-    -------
-    df : pd.DataFrame
-        A .copy() of the input DataFrame
+    Args:
+      df: pandas.DataFrame:
+      *columns: 
+
+    Returns:
+      df: pd.DataFrame: A .copy() of the input DataFrame
+
     """
     for column in columns:
         df = df[~df[column].isin(["", "NA", "nan"])]
