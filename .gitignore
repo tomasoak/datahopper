@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Distribution / packaging
+../Include
+/Lib
+/Scripts
+/dist
+
+# Environments
+.env
+.venv
+ds_toolkit/pyvenv.cfg
+pyvenv.cfg
+ds_toolkit.egg-info/
