@@ -6,6 +6,7 @@ __pycache__/
 /Lib
 /Scripts
 /dist
+/venv_ds_toolkit
 
 # Environments
 .env
@@ -13,3 +14,6 @@ __pycache__/
 ds_toolkit/pyvenv.cfg
 pyvenv.cfg
 ds_toolkit.egg-info/
+
+# Other
+utils.txt
