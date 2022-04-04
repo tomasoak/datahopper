@@ -6,7 +6,7 @@ def normalize_string(df: pd.DataFrame, col: str, case=None, clean=False):
     Case parameter makes your column string upper, lower or titlecase
     If clean:
         Removes special characters such as whitespace, ".", "-", "/", ",", '"'
-    
+
     Example:
         df = pd.DataFrame(
             columns=["id",  "name"],
@@ -61,12 +61,13 @@ def normalize_string(df: pd.DataFrame, col: str, case=None, clean=False):
 
     return df
 
-def rename(df: pandas.DataFrame, columns):
+
+def rename(df: pd.DataFrame, columns):
     """Rename columns
 
     Args:
-      df: pandas.DataFrame: 
-      columns: 
+      df: pandas.DataFrame:
+      columns:
 
     Returns:
       df: pd.Dataframe: withe renamed columns
@@ -74,15 +75,15 @@ def rename(df: pandas.DataFrame, columns):
     return df.rename(columns=columns, errors="raise")
 
 
-def drop_rows_missing_values(df: pandas.DataFrame, *columns):
+def drop_rows_missing_values(df: pd.DataFrame, *columns):
     """Drop rows with missing values
 
     Args:
-      df: pandas.DataFrame:
-      *columns: 
+      data: pandas.DataFrame:
+      *columns:
 
     Returns:
-      df: pd.DataFrame: A .copy() of the input DataFrame
+      data: pd.DataFrame: A .copy() of the input DataFrame
 
     """
     for column in columns:

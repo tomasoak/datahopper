@@ -1,18 +1,19 @@
-# Byte-compiled / optimized / DLL files
+# Cache
 __pycache__/
 tests/__pycache__
 __init__.pyc
+.pytest_cache
 
 # Distribution / packaging
 ../Include
 /Lib
 /Scripts
 /dist
-/venv_ds_toolkit
+.vscode
 
 # Environments
 .env
-.venv
+/venv_ds_toolkit
 ds_toolkit/pyvenv.cfg
 pyvenv.cfg
 ds_toolkit.egg-info/
