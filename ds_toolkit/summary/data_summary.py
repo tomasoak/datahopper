@@ -1,8 +1,10 @@
 import pandas as pd
 
 
-def summary(data, groupby_col, numeric_col) -> pd.DataFrame:
-    """Check missing data in a given pandas Dataframe
+def summary(data, groupby_col, numeric_col):
+    """ Summarizes dataframe based on numeric column
+    Gives the percentage of each attribute in which it will be groupped
+    and cumulative percentage contribution of given attribute.
 
     Args:
       data: pd.DataFrame:
@@ -13,15 +15,18 @@ def summary(data, groupby_col, numeric_col) -> pd.DataFrame:
       summary: pd.Dataframe
     """
 
-    df = data.groupby(groupby_col).agg({numeric_col: "sum"}).sort_values(numeric_col, ascending=False)
+    df = data.groupby(groupby_col).agg({numeric_col: "sum"})\
+        .sort_values(numeric_col, ascending=False)
     total = df[numeric_col].sum()
     cum_sum = df[numeric_col].cumsum()
 
-    df_summary = pd.DataFrame({"volume": df[numeric_col],
-                               "percentage": (100 * df[numeric_col] / total).round(1),
-                               "percentage_cumulative": (100 * cum_sum / total).round(1)})
+    df_summary = pd.DataFrame(
+        {"volume": df[numeric_col],
+         "percentage": (100 * df[numeric_col] / total),
+         "percentage_cumulative": (100 * cum_sum / total)})
 
-    return df_summary[["volume", "percentage", "percentage_cumulative"]].reset_index()
+    return df_summary[["volume", "percentage", "percentage_cumulative"]]\
+        .reset_index()
 
 
 def check(df: pd.DataFrame):
