@@ -3,14 +3,15 @@ from unidecode import unidecode
 import pandas as pd
 
 
-def normalize_column_string(
-        df: pd.DataFrame, col: str, case=None, clean=False):
+# TODO: UFT-8 string?
+def normalize_column_string_encoding(
+        df: pd.DataFrame, col: str):
     """
     Adjust column value characters encoding to UTF-8.
-    Case parameter makes your column string upper, lower or titlecase
-    If clean:
-        Removes special characters such as whitespace, ".", "-", "/", ",", '"'
+
     Example:
+        # TODO: Add an example that changes encoding!
+
         df = pd.DataFrame(columns=["id", "name"],
                       data=[[1, "john coltRanE-"],
                             [2, "eLLa FiTzgeralD"],
@@ -24,11 +25,9 @@ def normalize_column_string(
     Args:
       df: pd.DataFrame:
       col: str:
-      case: (Default value = None)
-      clean: (Default value = False)
 
     Returns:
-      df = pd.DataFrame: cleaned string column values
+      df = pd.DataFrame: utf-8 encoded column string
     """
     df[col] = (
         df[col]
@@ -36,42 +35,46 @@ def normalize_column_string(
         .str.encode("ascii", errors="ignore")
         .str.decode("utf-8")
     )
-    if case is None:
-        df[col] = df[col]
-    elif case == "lower":
-        df[col] = df[col].str.lower()
-    elif case == "upper":
-        df[col] = df[col].str.upper()
-    elif case == "title":
-        df[col] = df[col].str.title()
-    else:
-        raise ValueError(
-            "The chosen case must be 'lower', 'upper' or 'title'.")
-
-    if clean is True:
-        df[col] = (
-            df[col]
-            .str.replace(".", "")
-            .str.replace("-", "")
-            .str.replace("/", "")
-            .str.replace(",", "")
-            .str.replace('"', "")
-        )
-    else:
-        df[col] = df[col]
 
     return df
 
 
-def clean_string(text: str):
-    """ 
-    Take a string and clean it!
+def case_string(text: str, case=None):
+    """
+    Case string into upper, lower or title format
+
+    Args:
+     text: str
+     case: (Default value None)
+
+    Return:
+    text: str
+
+    """
+    if case == "upper":
+        text.upper()
+    elif case == "lower":
+        text.lower()
+    elif case == "title":
+        text.title()
+    else:
+        raise ValueError(
+            "The chosen case must be 'lower', 'upper' or 'title'.")
+
+    return text
+
+
+def clean_string(text: str, special_char=False):
+    """
+    Take a string and clean it
 
     - Remove double-whitespace
     - Remove tab, newline, return, formfeed, etc.
     - Replace accented characters (e.g. ö becomes o)
     - Trim leading and trailing whitespace
-    - Convert to upper-case
+    - If clean:
+        Removes special characters such as whitespace, ".", "-", "/", ",", '"'
+
     """
 
     def keep(character):
@@ -85,6 +88,16 @@ def clean_string(text: str):
     text = "".join(c for c in text if keep(c))
     text = " ".join(text.split())
     text = unidecode(text)
+
+    if special_char is True:
+        text = (
+            text.replace(".", "")
+            .replace("-", "")
+            .replace("/", "")
+            .replace(",", "")
+            .replace('"', "")
+        )
+
     return text
 
 
