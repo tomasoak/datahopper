@@ -1,17 +1,47 @@
 import pandas as pd
-from ds_toolkit.manager.data_normalize import normalize_column_string
+from ds_toolkit.manager.data_normalize import (
+    clean_string,
+    rename_column,
+    drop_rows_missing_values
+)
 
 
-def test_normalize_column_string():
-    df = pd.DataFrame(columns=["id", "name"],
-                      data=[[1, "john coltRanE-"],
-                            [2, "eLLa FiTzgeralD"],
-                            [3, "MiLes DaviS"]])
-    df_clean = pd.DataFrame(columns=["id", "name"],
-                            data=[[1, "John Coltrane"],
-                                  [2, "Ella Fitzgerald"],
-                                  [3, "Miles Davis"]])
+def test_clean_string():
+    string = "Älvkarleovägen"
+    string_cleaned = "Alvkarleovagen"
 
-    df = normalize_column_string(df, "name", case="title", clean=True)
+    string_special = "Zimbäb*we"
+    string_special_cleaned = "Zimbabwe"
 
-    assert all(df["name"] == df_clean["name"])
+    assert clean_string(string) == string_cleaned
+    assert clean_string(
+        string_special, especial_char=True) == string_special_cleaned
+
+
+def test_rename_column():
+    column_names = ["id", "municipality", "country", "continent"]
+
+    df = pd.DataFrame(
+        columns=["ID", "MUNCIPAL", "COUNTRI", "CONSTINENNT"])
+
+    aimed_column_names = dict(zip(df.columns, column_names))
+
+    df_renamed = pd.DataFrame(
+        columns=["id", "municipality", "country", "continent"])
+
+    assert all(rename_column(df, aimed_column_names) == df_renamed)
+
+
+def test_drop_rows_missing_values():
+    df = pd.DataFrame(columns=["id", "name", "age", "gender"],
+                      data=[[1, "Alex", 32, "Non-Binary"],
+                            [2, "", 28, "Male"],
+                            [3, "Austin", 57, "Male"],
+                            [4, "Palema", "NA", "NA"]])
+
+    df_cleaned = pd.DataFrame(columns=["id", "name", "age", "gender"],
+                              data=[[1, "Alex", 32, "Non-Binary"],
+                                    [3, "Austin", 57, "Male"]])
+
+    assert all(drop_rows_missing_values(
+        df, df.columns).sort_index(inplace=True) == df_cleaned)
