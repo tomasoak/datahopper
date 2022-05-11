@@ -21,5 +21,16 @@ pip install data-hopper
 
 ## Contributions
 Please, fell free to add your favorite data wrangling solutions!
-- Pull Requests
-- Issues
+
+#### How to contribute
+First, clone the repository
+```git clone https://github.com/tomasoak/data_hopper.git```
+
+Install the requirements
+```pip install -r requirements.txt```
+
+Then, create a local branch
+```git checkout branch <your_branch_name>```
+
+Add your best data wrangling functions and then open a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
+
