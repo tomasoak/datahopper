@@ -10,13 +10,14 @@ __init__.pyc
 /Scripts
 /dist
 .vscode
+build
 
 # Environments
 .env
-/venv_ds_toolkit
-ds_toolkit/pyvenv.cfg
+/venv
+data_hopper/pyvenv.cfg
 pyvenv.cfg
-ds_toolkit.egg-info/
+data_hopper.egg-info/
 
 # Other
 utils.txt
