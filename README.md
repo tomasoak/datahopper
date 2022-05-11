@@ -15,7 +15,7 @@ You can find out more on [PyPI](https://pypi.org/project/data-hopper/)
 <br>
 You can install this package using
 <br>
-``` pip install data-hopper ```
+```pip install data-hopper```
 
 ## Contributions
 Please, fell free to add your favorite data wrangling solutions!
