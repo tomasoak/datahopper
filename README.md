@@ -8,6 +8,11 @@ Hope this can be helpful to you as well.
 You can find out more on [PyPI](https://pypi.org/project/data-hopper/)
 
 ## Installation
+**Requirements**
+  - python >= 3.8
+  - pandas >= 1.4
+  - numpy >= 1.22
+<br>
 You can install this package using
 <br>
 ```
