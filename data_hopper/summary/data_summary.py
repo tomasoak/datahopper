@@ -8,11 +8,20 @@ def summary(data, groupby_col, numeric_col):
 
     Args:
       data: pd.DataFrame:
-      groupby_col:
-      numeric_col:
+      groupby_col: string
+      numeric_col: string
+
+    Example:
+      summary(data, "COUNTRY", "VOLUME")
+
+       COUNTRY         volume	       vol_pct	 vol_cpct
+        SOUTH AFRICA  5.634480e+08	  5.22	   5.22
+        ARGENTINA		  1.439596e+07	  0.13	   5.35
+        BRAZIL	      4.991230e+09	  46.20	   51.55
+        INDONESIA		  8.071003e+08	  7.47	   59.02
 
     Returns:
-      summary: pd.Dataframe
+      df_summary: pd.Dataframe
     """
 
     df = data.groupby(groupby_col).agg({numeric_col: "sum"})\
@@ -36,8 +45,9 @@ def check(df: pd.DataFrame):
       df: pd.DataFrame:
 
     Returns:
-      df: pd.Dataframe
+      df_check: pd.Dataframe
     """
+
     total_missing = df.isnull().sum().sum()
     missing_percentage = df.isnul().sum().sum() * 100 / df.shape[0]
     unique = df.nunique()
