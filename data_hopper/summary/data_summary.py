@@ -24,8 +24,9 @@ def summary(data, groupby_col, numeric_col):
       df_summary: pd.Dataframe
     """
 
-    df = data.groupby(groupby_col).agg({numeric_col: "sum"})\
-        .sort_values(numeric_col, ascending=False)
+    df = (data.groupby(groupby_col)
+              .agg({numeric_col: "sum"})
+              .sort_values(numeric_col, ascending=False))
     total = df[numeric_col].sum()
     cum_sum = df[numeric_col].cumsum()
 
@@ -34,8 +35,8 @@ def summary(data, groupby_col, numeric_col):
          "percentage": (100 * df[numeric_col] / total),
          "percentage_cumulative": (100 * cum_sum / total)})
 
-    return df_summary[["volume", "percentage", "percentage_cumulative"]]\
-        .reset_index()
+    return (df_summary[["volume", "percentage", "percentage_cumulative"]]
+            .reset_index())
 
 
 def check(df: pd.DataFrame):
