@@ -2,4 +2,4 @@
 A subpackage for data summary operations.
 """
 
-from ds_toolkit.summary import data_summary
+from data_hopper.summary import data_summary

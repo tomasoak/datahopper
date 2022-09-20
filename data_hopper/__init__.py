@@ -1,9 +1,9 @@
 """
-Data Science toolkit
+Data Hopper
 =============================
-Complete package for data wrangling in python.
+Package for data wrangling in python.
 """
 
 __version__ = "0.1.0"
 
-from ds_toolkit import manager, summary
+from data_hopper import manager, summary, cloud
