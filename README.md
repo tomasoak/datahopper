@@ -13,12 +13,14 @@
 </p>
 
 <br>
+
 ## About
+
 Developed aiming at saving many solutions that I have found working as Data Scientist.
 <br>
 Hope this can be helpful to you as well :)
 
-You can find out more on [PyPI](https://pypi.org/project/data-hopper/)
+You can find out more [Here](https://data-hopper.netlify.app/) or on [PyPI](https://pypi.org/project/data-hopper/)
 
 ## Installation
 **Requirements**
