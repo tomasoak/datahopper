@@ -1,4 +1,8 @@
-
 [build]
-  command = "mkdocs build --config-file mkdocs.yml"
-  publish = "site"
+publish = "site"
+command = """
+curl -sSL https://install.python-poetry.org | python3 -
+poetry install
+poetry shell
+mkdocs serve
+"""
