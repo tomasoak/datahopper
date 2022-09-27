@@ -1,7 +1,8 @@
 <h1 align="center">
 	Data Hopper
-  <br>
-  <a href="https://data-hopper.netlify.app/">
+<br>
+<a href="https://data-hopper.netlify.app/">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/tomasoak/data_hopper">
     <img src="https://api.netlify.com/api/v1/badges/ec8a8e7a-e928-4711-9272-7206f2163125/deploy-status" alt="Netlify status">
 </a>
   <a href="https://badge.fury.io/py/data-hopper"><img src="https://badge.fury.io/py/data-hopper.svg" alt="PyPI version" height="18"></a>
