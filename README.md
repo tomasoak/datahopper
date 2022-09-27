@@ -1,6 +1,18 @@
-# Data Hopper
-Data Hopper is a python package for data wrangling.
+<h1 align="center">
+	Data Hopper
+  <br>
+  <a href="https://data-hopper.netlify.app/">
+    <img src="https://api.netlify.com/api/v1/badges/ec8a8e7a-e928-4711-9272-7206f2163125/deploy-status" alt="Netlify status">
+</a>
+  <a href="https://badge.fury.io/py/data-hopper"><img src="https://badge.fury.io/py/data-hopper.svg" alt="PyPI version" height="18"></a>
 <br>
+</h1>
+<p align="center">
+  Python package for data wrangling and engineering
+</p>
+
+<br>
+## About
 Developed aiming at saving many solutions that I have found working as Data Scientist.
 <br>
 Hope this can be helpful to you as well :)
