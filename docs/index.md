@@ -1,34 +1,24 @@
-# Welcome to MkDocs
+<p align="center">
+  Python package for Data Engineering and Wrangling
+</p>
+<p align="center">
+<a href="https://data-hopper.netlify.app/">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/tomasoak/data_hopper">
+    <img src="https://api.netlify.com/api/v1/badges/ec8a8e7a-e928-4711-9272-7206f2163125/deploy-status" alt="Netlify status">
+</a>
+  <a href="https://badge.fury.io/py/data-hopper"><img src="https://badge.fury.io/py/data-hopper.svg" alt="PyPI version" height="18"></a>
+</p>
+<br>
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-
-# Data Hopper
-Data Hopper is a python package for data wrangling.
 <br>
 Developed aiming at saving many solutions that I have found working as Data Scientist.
 <br>
-Hope this can be helpful to you as well
+Hope this can be helpful to you as well :)
 
-You can find out more on [PyPI](https://pypi.org/project/data-hopper/)
+You can find out more [Here](https://data-hopper.netlify.app/) or on [PyPI](https://pypi.org/project/data-hopper/)
 
 
-## Project layout
-
-    data_hopper    # .
-    cloud/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-    manager/
-    summary/
-    tests/
 
 
 ## Installation
@@ -39,7 +29,6 @@ You can find out more on [PyPI](https://pypi.org/project/data-hopper/)
 
 You can install this package using
 <br>
-```pip install data-hopper```
-
-
-
+```console
+pip install data-hopper
+```
