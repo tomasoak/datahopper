@@ -1,5 +1,5 @@
 <p align="center">
-  Python package for Data Engineering and Wrangling
+  Python package for Data Engineering and Data Wrangling
 </p>
 <p align="center">
 <a href="https://data-hopper.netlify.app/">
@@ -12,23 +12,32 @@
 
 
 <br>
-Developed aiming at saving many solutions that I have found working as Data Scientist.
+Developed aiming at saving many solutions that I have found working as Data Scientist/Engineer.
 <br>
 Hope this can be helpful to you as well :)
 
-You can find out more [Here](https://data-hopper.netlify.app/) or on [PyPI](https://pypi.org/project/data-hopper/)
+You can find out more on [Docs](https://data-hopper.netlify.app/) or on [PyPI](https://pypi.org/project/data-hopper/)
 
 
 
 
 ## Installation
 **Requirements**
-  - python >= 3.8
-  - pandas >= 1.4
-  - numpy >= 1.22
+```
+python >= 3.8
+pandas >= 1.4
+numpy >= 1.22
+```
 
-You can install this package using
 <br>
+
+You can install this package with [poetry](https://python-poetry.org/docs/) or [pip](https://pypi.org/project/pip/)
+<br>
+poetry:
+```console
+poetry add data-hopper
+```
+pip:
 ```console
 pip install data-hopper
 ```
