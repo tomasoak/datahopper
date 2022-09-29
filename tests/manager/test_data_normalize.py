@@ -1,5 +1,5 @@
 import pandas as pd
-from ds_toolkit.manager.data_normalize import (
+from datahopper.manager.data_normalize import (
     clean_string,
     rename_column,
     drop_rows_missing_values
