@@ -22,37 +22,62 @@ ___
 
 ## About
 
-Developed aiming at saving many solutions that I have found working as Data Scientist.
+Developed aiming at saving many solutions that I have found working as Data Scientist/Engineer.
 <br>
 Hope this can be helpful to you as well :)
 
-You can find out more [Here](https://data-hopper.netlify.app/) or on [PyPI](https://pypi.org/project/data-hopper/)
+You can find out more on [Docs](https://data-hopper.netlify.app/) or on [PyPI](https://pypi.org/project/data-hopper/)
 
 ## Installation
-**Requirements**
+**Basic requirements**
   - python >= 3.8
   - pandas >= 1.4
   - numpy >= 1.22
 
-You can install this package using
+You can install this package with [poetry](https://python-poetry.org/docs/) or [pip](https://pypi.org/project/pip/)
 <br>
-```pip install data-hopper```
+poetry:
+```console
+poetry add data-hopper
+```
+pip:
+```console
+pip install data-hopper
+```
+
 
 ## Contributions
-Please, fell free to add your favorite data wrangling solutions!
+This is an open-source project, fell free to add your favorite data engineering and data wrangling solutions!
 
 #### How to contribute
 First, clone the repository
 <br>
-```git clone https://github.com/tomasoak/data_hopper.git```
+```console
+git clone https://github.com/tomasoak/data_hopper.git
+```
+<br>
 
 Install the requirements
+
+
+poetry:
+```console
+cat requirements.txt | xargs poetry add
+```
+pip:
+```console
+pip install -r requirements.txt
+```
+
 <br>
-```pip install -r requirements.txt```
 
 Create a local branch
 <br>
-```git checkout branch <your_branch_name>```
+```console
+git checkout branch <your_branch_name>
+```
 
-Add your best data wrangling functions and then open a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
+<br>
+
+:rocket::computer: Add your best data engineering and data wrangling solutions and then open a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
 
