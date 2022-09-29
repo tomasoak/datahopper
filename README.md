@@ -9,7 +9,7 @@
 <br>
 </h1>
 <p align="center">
-  Python package for data wrangling and engineering
+  Python package for data engineering and data wrangling
 </p>
 
 <br>
