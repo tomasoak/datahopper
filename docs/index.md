@@ -16,7 +16,7 @@ Developed aiming at saving many solutions that I have found working as Data Scie
 <br>
 Hope this can be helpful to you as well :)
 
-You can find out more on [Docs](https://data-hopper.netlify.app/) or on [PyPI](https://pypi.org/project/data-hopper/)
+You can find out more on [Docs](https://data-hopper.netlify.app/), [PyPI](https://pypi.org/project/data-hopper/), or [Github](https://github.com/tomasoak/datahopper)
 
 
 
