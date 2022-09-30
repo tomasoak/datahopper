@@ -81,3 +81,8 @@ git checkout branch <your_branch_name>
 
 :rocket::computer: Add your best data engineering and data wrangling solutions and then open a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
 
+<br>
+
+## License
+
+This project is licensed under the terms of the [MIT license](https://github.com/tomasoak/datahopper/blob/master/LICENSE).
