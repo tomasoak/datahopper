@@ -12,23 +12,47 @@
 
 
 <br>
-Developed aiming at saving many solutions that I have found working as Data Scientist.
+Developed aiming at saving many solutions that I have found working as Data Scientist/Engineer.
 <br>
 Hope this can be helpful to you as well :)
 
 You can find out more [Here](https://data-hopper.netlify.app/) or on [PyPI](https://pypi.org/project/data-hopper/)
 
+<br>
 
+## Features
+This package includes a number of utilities to help you improve your code as well as data reliability:
+* **Data Normalize**: Get your data ready to analysis with `normalize`
+* **Data Summary**: Get quick insights on your data with `summary`
+* **Cloud**: Easy access to data on your favorite cloud provider with `Cloud`
 
+<br>
 
-## Installation
-**Requirements**
+## Requirements
   - python >= 3.8
   - pandas >= 1.4
   - numpy >= 1.22
 
-You can install this package using
 <br>
+
+## Installation
+You can install with [poetry](https://python-poetry.org/docs/) or [pip](https://pypi.org/project/pip/)
+<br>
+poetry:
+```console
+poetry add data-hopper
+```
+pip:
 ```console
 pip install data-hopper
 ```
+
+<br>
+
+## Contributions
+This is an open-source project, fell free to add your favorite data engineering and data wrangling solutions!
+
+<br>
+
+## License
+This project is licensed under the terms of the MIT license.

@@ -28,13 +28,19 @@ Hope this can be helpful to you as well :)
 
 You can find out more on [Docs](https://data-hopper.netlify.app/) or on [PyPI](https://pypi.org/project/data-hopper/)
 
-## Installation
-**Basic requirements**
-  - python >= 3.8
-  - pandas >= 1.4
-  - numpy >= 1.22
+<br>
 
-You can install this package with [poetry](https://python-poetry.org/docs/) or [pip](https://pypi.org/project/pip/)
+## Requirements
+
+- Python >= 3.8
+- Pandas >= 1.4
+- NumPy >= 1.22
+
+
+<br>
+
+## Installation
+You can install with [poetry](https://python-poetry.org/docs/) or [pip](https://pypi.org/project/pip/)
 <br>
 poetry:
 ```console
@@ -80,4 +86,3 @@ git checkout branch <your_branch_name>
 <br>
 
 :rocket::computer: Add your best data engineering and data wrangling solutions and then open a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
-
