@@ -21,17 +21,20 @@ You can find out more on [Docs](https://data-hopper.netlify.app/), [PyPI](https:
 <br>
 
 ## Features
+
 This package includes a number of utilities to help you improve your code as well as data reliability:
+
 * **Data Normalize**: Get your data ready to analysis with `normalize`
 * **Data Summary**: Get quick insights on your data with `summary`
 * **Cloud**: Easy access to data on your favorite cloud provider with `Cloud`
 
 <br>
 
+
 ## Requirements
-  - python >= 3.8
-  - pandas >= 1.4
-  - numpy >= 1.22
+  - Python >= 3.8
+  - Pandas >= 1.4
+  - NumPy >= 1.22
 
 <br>
 
