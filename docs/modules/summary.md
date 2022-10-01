@@ -1,5 +1,3 @@
-## Summary
-
 Handy ways to summarize our tabular data
 
 <br>
