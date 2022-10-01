@@ -1,7 +1,3 @@
-## Normalize
-
-<br>
-
 ### Clean string
 - Remove double-whitespace
 - Remove tab, newline, return, formfeed, etc.
