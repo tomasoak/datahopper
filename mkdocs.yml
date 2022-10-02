@@ -25,7 +25,7 @@ theme:
 nav:
   - Data Hopper: 'index.md'
   - User Guide:
-      - Manager: 'modules/normalize.md'
+      - Normalize: 'modules/normalize.md'
       - Summary: 'modules/summary.md'
   - Get Help: 'help-data-hopper.md'
   - Development - Contribuiting: 'contribuiting.md'
