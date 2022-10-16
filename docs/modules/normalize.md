@@ -5,14 +5,21 @@
 - Trim leading and trailing whitespace
 
 ```console
-import datahopper.normalize import clean_string
+from datahopper.normalize import clean_string
+
+string = "Älvkarleovägen"
+cleaned_string = clean_string(string)
 ```
 <br>
 
 ### Rename DataFrame columns
 
 ```console
-import datahopper.normalize import rename_column
+from datahopper.normalize import rename_column
+
+df = pd.DataFrame(columns=["ID", "MUNCIPAL", "COUNTRI", "CONSTINENNT"])
+column_names = ["id", "municipality", "country", "continent"]
+rename_column(df, column_names)
 ```
 
 <br>
@@ -20,5 +27,5 @@ import datahopper.normalize import rename_column
 ### Drop DataFrame rows with missing values
 
 ```console
-import datahopper.normalize import drop_rows_missing_values
+from datahopper.normalize import drop_rows_missing_values
 ```
