@@ -1,4 +1,4 @@
-Handy ways to summarize our tabular data
+Handy ways to summarize your tabular data
 
 <br>
 
