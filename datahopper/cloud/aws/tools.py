@@ -1,4 +1,5 @@
 import io
+
 import pandas as pd
 
 
@@ -38,8 +39,7 @@ def stream_object(
     obj = client.get_object(Bucket=bucket, Key=key, **kwargs)
     buffer: StreamingBody = obj["Body"]
     if decode:
-        buffer = io.TextIOWrapper(
-            buffer, encoding=encoding, errors=decoding_errors)
+        buffer = io.TextIOWrapper(buffer, encoding=encoding, errors=decoding_errors)
 
     if track:
         add_object_to_tracker(key, bucket, version_id, client)
@@ -48,9 +48,14 @@ def stream_object(
 
 
 def read_csv(
-        key, bucket=BUCKET, version_id=None, client=S3_CLIENT, track=True, **
-        kwargs,):
-    """ Read an S3 object containing CSV data to a DataFrame
+    key,
+    bucket=BUCKET,
+    version_id=None,
+    client=S3_CLIENT,
+    track=True,
+    **kwargs,
+):
+    """Read an S3 object containing CSV data to a DataFrame
 
     Args:
         kwargs: passed through to `pd.read_csv`
@@ -59,17 +64,21 @@ def read_csv(
         return pd.read_csv(body, **kwargs)
 
 
-def read_xlsx(key, bucket=BUCKET, version_id=None, client=S3_CLIENT,
-              track=True, **kwargs,):
-    """ Read an S3 object containing XLSX data to a DataFrame
+def read_xlsx(
+    key,
+    bucket=BUCKET,
+    version_id=None,
+    client=S3_CLIENT,
+    track=True,
+    **kwargs,
+):
+    """Read an S3 object containing XLSX data to a DataFrame
 
     Args:
         kwargs: passed through to `pd.read_excel`
     """
     with stream_object(key, bucket, version_id, client, track, decode=False) as body:
-        return pd.read_excel(
-            io.BytesIO(body.read()),
-            engine="openpyxl", **kwargs)
+        return pd.read_excel(io.BytesIO(body.read()), engine="openpyxl", **kwargs)
 
 
 def get_pandas_df(
@@ -92,5 +101,5 @@ def get_pandas_df(
         return read_xlsx(key, bucket, version_id, client, track, **kwargs)
     else:
         return read_csv(
-            key, bucket, version_id, client, track, sep=sep, encoding=encoding,
-            **kwargs)
+            key, bucket, version_id, client, track, sep=sep, encoding=encoding, **kwargs
+        )
