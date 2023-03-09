@@ -61,3 +61,33 @@ def check(df: pd.DataFrame):
     print("Percentual Data Missing:", missing_percentage)
 
     return df_check
+
+
+def row_difference(df: pd.DataFrame, vol: str):
+    """Checks whether the previous values is equal to the current year,
+    if so `CAP_DIFF` is False otherwise, True"""
+    import numpy as np
+    
+    df = df.sort_values(["TRASE_ID", "YEAR"])
+
+    previous_value = df[vol].shift(1)
+    
+    unique_trase_id = sorted(df["TRASE_ID"].unique())
+    unique_years = sorted(df["YEAR"].unique())
+    
+    first_year = unique_years[0]
+    not_first_year = df["YEAR"] != first_year
+    
+    bigger_previous = df[vol] > previous_value
+    equal_previous = df[vol] == previous_value
+    lower_previous = df[vol] < previous_value
+    
+    for i, j in zip(unique_trase_id, unique_years):
+        df.loc[df["YEAR"] == first_year, "AREA_TREND"] = np.NaN
+        df.loc[(not_first_year) & (bigger_previous), "AREA_TREND"] = "Increased"
+        df.loc[(not_first_year) & (bigger_previous), "AREA_DIFF"] = df[vol] - previous_value
+        df.loc[equal_previous, "AREA_TREND"] = "Equal"
+        df.loc[(not_first_year) & (lower_previous), "AREA_TREND"] = "Decreased"
+        df.loc[(not_first_year) & (lower_previous), "AREA_DIFF"] = df[vol] - previous_value
+    
+    return df
