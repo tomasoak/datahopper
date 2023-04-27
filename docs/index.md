@@ -26,7 +26,8 @@ This package includes a number of utilities to help you improve your code as wel
 
 * **Data Normalize**: Get your data ready to analysis with `normalize`
 * **Data Summary**: Get quick insights on your data with `summary`
-* **Cloud**: Easy access to data on your favorite cloud provider with `Cloud`
+* **Cloud**: Easy access to data on your favorite cloud provider with `cloud`
+* **Viz**: Easy visualize your data with `viz`
 
 <br>
 
