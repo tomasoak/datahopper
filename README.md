@@ -33,7 +33,7 @@ You can find out more on [Docs](https://data-hopper.netlify.app/) or on [PyPI](h
 ## Requirements
 
 - Python >= 3.8
-- Pandas >= 1.4
+- Pandas >= 2.0.0
 - NumPy >= 1.22
 
 
