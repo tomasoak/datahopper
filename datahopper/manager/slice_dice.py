@@ -1,36 +1,48 @@
 import pandas as pd
 
 
-def two_rows_to_column(df: pd.DataFrame) -> pd.DataFrame:
-    df_area = pd.melt(
-        df,
-        id_vars=["TRASE_ID", "MUNICIPALITY", "DEPARTMENT", "YEAR"],
-        value_vars=["AREA"],
-    )
-    df_area["VAR"] = df_area["variable"] + "_" + df_area["YEAR"]
-    df_area = df_area[["TRASE_ID", "MUNICIPALITY", "DEPARTMENT", "VAR", "value"]]
-    df_area = df_area.astype({"value": "float"})
+def rows_to_column(df: pd.DataFrame) -> pd.DataFrame:
+    """ Melt table by combining two columns and bringing them into columns.
 
-    df_area = df_area.pivot_table(
+    Args:
+      data: pd.DataFrame
+      groupby_col: string
+      numeric_col: string
+
+    Example:
+        From this:
+        YEAR	DEPARTMENT	MUNICIPALITY	  GEOCODE	  INDICATOR	    VALUE
+        2020	SANTA CRUZ	LAGUNILLAS	      070701	   PRODUCTION	1152.00
+        2021	SANTA CRUZ	FERNANDEZ ALONSO  071004	   PRODUCTION	2.63
+
+        To this:
+        GEOCODE	   MUNICIPALITY	 DEPARTMENT	 PRODUCTION_2020	PRODUCTION_2021
+        010401	PADILLA	     CHUQUISACA	       34.0	            35.0	
+        010405	EL VILLAR	 CHUQUISACA	       15.0	            16.0
+    
+    Returns:
+      df: pd.Dataframe
+    """
+
+    df_prod = pd.melt(
+        df,
+        id_vars=["GEOCODE", "MUNICIPALITY", "DEPARTMENT", "YEAR"],
+        value_vars=["PRODUCTION"],
+    )
+    df_prod["VAR"] = df_prod["variable"] + "_" + df_prod["YEAR"]
+    df_prod = df_prod[["GEOCODE", "MUNICIPALITY", "DEPARTMENT", "VAR", "value"]]
+    df_prod = df_prod.astype({"value": "float"})
+
+    df_prod = df_prod.pivot_table(
         values=["value"],
-        index=["TRASE_ID", "MUNICIPALITY", "DEPARTMENT"],
+        index=["GEOCODE", "MUNICIPALITY", "DEPARTMENT"],
         columns=["VAR"],
     )
 
-    df_area.columns = [
-        "AREA_2013",
-        "AREA_2014",
-        "AREA_2015",
-        "AREA_2016",
-        "AREA_2017",
-        "AREA_2018",
-        "AREA_2019",
-        "AREA_2020",
-        "AREA_2021",
+    df_prod.columns = [
+        "PRODUCTION_2018",
+        "PRODUCTION_2019",
+        "PRODUCTION_2020",
+        "PRODUCTION_2021",
     ]
-    df_area = df_area.reset_index()
-
-    df_area = mun.merge(
-        df_area, how="left", on=["TRASE_ID", "MUNICIPALITY", "DEPARTMENT"]
-    )
-    df_area = df_area.fillna(0)
+    df_prod = df_prod.reset_index()
